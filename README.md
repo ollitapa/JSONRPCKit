@@ -30,8 +30,8 @@ response // 19 (type of response is inferred from SubtractRequest.Response)
 
 - Swift 5.3 / Xcode 12.2 or later
     - If you use Swift 3.1 (Xcode 8.3), you can use [2.0.3](https://github.com/bricklife/JSONRPCKit/tree/2.0.3) instead.
-- iOS 9.0 or later
-- macOS 10.9 or later
+- iOS 12.0 or later
+- macOS 10.10 or later
 - watchOS 2.0 or later
 - tvOS 9.0 or later
 - [Linux](https://swift.org/download/#linux) is also supported
