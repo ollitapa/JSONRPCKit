@@ -1,0 +1,67 @@
+---
+format_version: '7'
+default_step_lib_source: 'https://github.com/bitrise-io/bitrise-steplib.git'
+project_type: macos
+trigger_map:
+- pull_request_source_branch: '*'
+  workflow: apple-test
+- tag: '*'
+  workflow: deploy
+workflows:
+  deploy:
+    steps:
+    - activate-ssh-key:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone: {}
+    - cache-pull: {}
+    - carthage:
+        inputs:
+        - carthage_options: $BITRISE_SCHEME --no-skip-current
+        - carthage_command: build
+        title: Carthage build
+    - carthage:
+        inputs:
+        - carthage_options: $BITRISE_SCHEME
+        - carthage_command: archive
+        title: Carthage archive
+    - script:
+        title: Copy archive
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+
+            mv $BITRISE_SCHEME.framework.zip $BITRISE_DEPLOY_DIR
+            echo $BITRISE_DEPLOY_DIR/$BITRISE_SCHEME.framework.zip
+    - generate-changelog: {}
+    - github-release:
+        inputs:
+        - files_to_upload: $BITRISE_DEPLOY_DIR/$BITRISE_SCHEME.framework.zip
+        - name: $BITRISE_SCHEME $BITRISE_GIT_TAG
+        - api_token: $GITHUB_TOKEN
+        - body: 'Changes: $BITRISE_CHANGELOG'
+        - draft: 'no'
+        - username: $GITHUB_USER
+    - cache-push: {}
+  apple-test:
+    steps:
+    - activate-ssh-key:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone: {}
+    - cache-pull: {}
+    - xcode-test: {}
+    - xcode-test-mac: {}
+    - swift-package-manager-test-for-mac: {}
+    - cache-push: {}
+app:
+  envs:
+  - opts:
+      is_expand: false
+    BITRISE_PROJECT_PATH: JSONRPCKit.xcodeproj
+  - opts:
+      is_expand: false
+    BITRISE_SCHEME: JSONRPCKit
+  - opts:
+      is_expand: false
+    BITRISE_EXPORT_METHOD: none
