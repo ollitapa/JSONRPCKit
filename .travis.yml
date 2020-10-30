@@ -4,7 +4,7 @@ env:
     
 branches:
   only:
-    - master
+    - main
 
 matrix:
   include:
@@ -12,7 +12,7 @@ matrix:
       language: generic
       env:
         - JOB=Linux
-        - SWIFT_VERSION=5.1.3
+        - SWIFT_VERSION=5.3
       script:
         - swift --version
         - swift build
