@@ -162,7 +162,7 @@ private struct JSONRPCResponseResult<ResultObject: Decodable>: Decodable {
 private struct JSONRPCErrorResponse: Decodable {
     let code: Int
     let message: String
-    let data: Decoder
+    let data: JsonValue
 
     private enum CodingKeys: String, CodingKey {
         case code, message, data
@@ -173,7 +173,7 @@ private struct JSONRPCErrorResponse: Decodable {
 
         code = try container.decode(Int.self, forKey: .code)
         message = try container.decode(String.self, forKey: .message)
-        data = try container.superDecoder(forKey: .data)
+        data = try container.decodeIfPresent(JsonValue.self, forKey: .data) ?? .none
     }
 }
 

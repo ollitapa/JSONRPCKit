@@ -10,7 +10,7 @@ import Foundation
 
 /// Errors that the JSONRPCKit throws
 ///
-/// - responseError: Response had an error message with it. Data is a Decoder. Use singleValueContainer() to decode it if you want.
+/// - responseError: Response had an error message with it. Data is a generic JsonValu.
 /// - responseNotFound: Response was not found
 /// - responseParseError: Response could not be parsed. Decoding error is contained
 /// - resultObjectParseError: Result object could not be parsed.
@@ -18,7 +18,7 @@ import Foundation
 /// - unsupportedVersion: Version is unsupported
 /// - missingBothResultAndError: Result and Error are missing.
 public enum JSONRPCError: Error {
-    case responseError(code: Int, message: String, data: Decoder)
+    case responseError(code: Int, message: String, data: JsonValue)
     case responseNotFound(requestId: Id?)
     case responseParseError(Error)
     case resultObjectParseError(Error)

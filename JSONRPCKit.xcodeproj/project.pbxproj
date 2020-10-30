@@ -13,6 +13,7 @@
 		7FC654F91D48B6CB004C390C /* BatchElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC654F71D48B6CB004C390C /* BatchElement.swift */; };
 		7FC654FB1D49DF27004C390C /* BatchFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC654FA1D49DF27004C390C /* BatchFactory.swift */; };
 		7FC6550C1D49FA20004C390C /* TestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC6550B1D49FA20004C390C /* TestRequest.swift */; };
+		B514B4A9254C493600C278E1 /* AnyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514B4A8254C493600C278E1 /* AnyDecodable.swift */; };
 		B5C344CC212A9ED70066C0A4 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C344CB212A9ED70066C0A4 /* AnyEncodable.swift */; };
 		B5C344CE212A9FAF0066C0A4 /* AnyEncodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C344CD212A9FAF0066C0A4 /* AnyEncodableTests.swift */; };
 		CB36EB281BF39028003A4BCA /* Id.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB36EB271BF39028003A4BCA /* Id.swift */; };
@@ -42,6 +43,7 @@
 		7FC655001D49EA19004C390C /* JSONRPCKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONRPCKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC655041D49EA19004C390C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FC6550B1D49FA20004C390C /* TestRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRequest.swift; sourceTree = "<group>"; };
+		B514B4A8254C493600C278E1 /* AnyDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyDecodable.swift; sourceTree = "<group>"; };
 		B5C344CB212A9ED70066C0A4 /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
 		B5C344CD212A9FAF0066C0A4 /* AnyEncodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodableTests.swift; sourceTree = "<group>"; };
 		CB36EB271BF39028003A4BCA /* Id.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Id.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				CB36EB271BF39028003A4BCA /* Id.swift */,
 				CBB4161B1BF3599D00B4DB0E /* IdGenerator.swift */,
 				CBB4161D1BF370EA00B4DB0E /* NumberIdGenerator.swift */,
+				B514B4A8254C493600C278E1 /* AnyDecodable.swift */,
 				B5C344CB212A9ED70066C0A4 /* AnyEncodable.swift */,
 				CBB0C3531BF0B1D7006A7D41 /* Info.plist */,
 			);
@@ -270,6 +273,7 @@
 				7FC654FB1D49DF27004C390C /* BatchFactory.swift in Sources */,
 				CBB4161E1BF370EA00B4DB0E /* NumberIdGenerator.swift in Sources */,
 				CB36EB281BF39028003A4BCA /* Id.swift in Sources */,
+				B514B4A9254C493600C278E1 /* AnyDecodable.swift in Sources */,
 				CBB4161C1BF3599D00B4DB0E /* IdGenerator.swift in Sources */,
 				7FC654F91D48B6CB004C390C /* BatchElement.swift in Sources */,
 				CBB0C35A1BF0B2D3006A7D41 /* Request.swift in Sources */,

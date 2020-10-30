@@ -143,10 +143,8 @@ class BatchElementTests: XCTestCase {
             if case .responseError(let code, let message, let data)? = error {
                 XCTAssertEqual(code, 123)
                 XCTAssertEqual(message, "abc")
-
-                let container = try? data.singleValueContainer()
-                let dataDict = try? container?.decode(Dictionary<String, String>.self)
-                XCTAssertEqual(dataDict?["key"], "value")
+                let expected = [AnyCodingKey: JsonValue](uniqueKeysWithValues: [("key", "value")])
+                XCTAssertEqual(data, .keyed(expected))
             } else {
                 XCTFail()
             }
@@ -187,9 +185,8 @@ class BatchElementTests: XCTestCase {
             if case .responseError(let code, let message, let data)? = error {
                 XCTAssertEqual(code, 123)
                 XCTAssertEqual(message, "abc")
-                let container = try? data.singleValueContainer()
-                let dataDict = try? container?.decode(Dictionary<String, String>.self)
-                XCTAssertEqual(dataDict?["key"], "value")
+                let expected = [AnyCodingKey: JsonValue](uniqueKeysWithValues: [("key", "value")])
+                XCTAssertEqual(data, .keyed(expected))
             } else {
                 XCTFail()
             }
